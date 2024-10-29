@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data:/data/db
+    secrets:
+      - root_username
+      - root_password
+
+secrets:
+  root_username:
+    file: .env.db
+  root_password:
+    file: .env.db
