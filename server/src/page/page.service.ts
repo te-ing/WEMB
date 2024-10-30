@@ -17,15 +17,15 @@ export class PageService {
     return this.pageModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} page`;
+  findOne(id: string) {
+    return this.pageModel.findById(id).exec();
   }
 
   update(id: number, updatePageDto: UpdatePageDto) {
     return `This action updates a #${id} page`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} page`;
+  remove(id: string) {
+    return this.pageModel.findByIdAndDelete(id).exec();
   }
 }
