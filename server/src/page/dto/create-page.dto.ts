@@ -1,10 +1,27 @@
-import { IsString, IsOptional } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { Type } from 'class-transformer';
+import { CreateBoxDto } from './create-box.dto';
 
 export class CreatePageDto {
+  @IsNotEmpty()
   @IsString()
-  readonly name: string;
+  name: string;
 
   @IsOptional()
   @IsString()
-  readonly content?: string;
+  background?: string;
+
+  @IsOptional()
+  @IsString()
+  width?: string;
+
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => CreateBoxDto)
+  box?: CreateBoxDto[];
 }
