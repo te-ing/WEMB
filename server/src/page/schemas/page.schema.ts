@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
+import { Box, BoxSchema } from './box.schema';
 
 export type PageDocument = HydratedDocument<Page>;
 
@@ -9,7 +10,13 @@ export class Page {
   name: string;
 
   @Prop()
-  content: string;
+  background: string;
+
+  @Prop()
+  width: string;
+
+  @Prop({ type: [{ type: BoxSchema }], default: [] })
+  box: Box[];
 
   @Prop({ default: new Date(), type: mongoose.Schema.Types.Date })
   createdAt: Date;
