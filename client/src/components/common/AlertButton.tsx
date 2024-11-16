@@ -33,7 +33,7 @@ export function AlertButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="outline" className={triggerClassName}>
+        <Button variant="ghost" className={triggerClassName}>
           {triggerTitle}
         </Button>
       </AlertDialogTrigger>

@@ -11,6 +11,11 @@ const useSourceStore = create(
         ...state,
         background,
       })),
+    setTitle: ({ title }) =>
+      set((state) => ({
+        ...state,
+        title,
+      })),
   })),
 );
 

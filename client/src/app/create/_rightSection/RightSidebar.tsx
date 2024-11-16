@@ -1,7 +1,7 @@
 import { SidebarProvider, SidebarTrigger, Sidebar as Sidebar } from "@/components/ui/sidebar";
 import { SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu } from "@/components/ui/sidebar";
 import React from "react";
-import EditBackground from "./EditBackground";
+import EditInfo from "./EditInfo";
 
 export default function RightSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -17,7 +17,7 @@ export default function RightSidebar({ ...props }: React.ComponentProps<typeof S
           <SidebarTrigger className="-scale-x-100" />
           <SidebarGroup>
             <SidebarGroupContent>
-              <EditBackground />
+              <EditInfo />
             </SidebarGroupContent>
           </SidebarGroup>
           <SidebarGroup>
