@@ -3,17 +3,18 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Label } from "@/components/ui/label";
 import { AlertButton } from "@/components/common/AlertButton";
 import { useStore } from "zustand";
-import { useBackgroundStore } from "@/stores/bgImageStore";
 import { FileInput } from "@/components/common/fileInput";
+import { useSourceStore } from "@/stores/sourceStore";
 
 export default function EditBackground() {
-  const { setBackground, background } = useStore(useBackgroundStore);
+  const { setBackground, background } = useStore(useSourceStore);
 
   const handleImage: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { files } = e.currentTarget;
     if (!files || !files[0]) return;
     const file = files[0];
     setBackground({ background: file });
+    e.target.value = "";
   };
 
   const onConfirm = () => {
