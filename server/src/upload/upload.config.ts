@@ -3,7 +3,7 @@ import { extname } from 'path';
 
 export const fileUploadOptions = {
   storage: diskStorage({
-    destination: './uploads/images',
+    destination: './public/images',
     filename: (req, file, callback) => {
       const ext = extname(file.originalname);
       const filename = `${Date.now()}${ext}`;

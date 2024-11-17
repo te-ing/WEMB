@@ -8,6 +8,7 @@ specifiers:
   '@nestjs/mongoose': ^10.1.0
   '@nestjs/platform-express': ^10.4.6
   '@nestjs/schematics': ^10.0.0
+  '@nestjs/serve-static': ^4.0.2
   '@nestjs/testing': ^10.0.0
   '@types/express': ^5.0.0
   '@types/jest': ^29.5.2
@@ -42,6 +43,7 @@ dependencies:
   '@nestjs/mapped-types': 2.0.5_5w3wlod5soploq6ut54pgpqrue
   '@nestjs/mongoose': 10.1.0_dtuljx5lpxmqo3rulgcwcyvlfy
   '@nestjs/platform-express': 10.4.6_q6xdh65ohw3hssmeeltuqjdc3m
+  '@nestjs/serve-static': 4.0.2_q6xdh65ohw3hssmeeltuqjdc3m
   class-transformer: 0.5.1
   class-validator: 0.14.1
   mongoose: 8.7.3
@@ -1049,6 +1051,27 @@ packages:
     transitivePeerDependencies:
       - chokidar
     dev: true
+
+  /@nestjs/serve-static/4.0.2_q6xdh65ohw3hssmeeltuqjdc3m:
+    resolution: {integrity: sha512-cT0vdWN5ar7jDI2NKbhf4LcwJzU4vS5sVpMkVrHuyLcltbrz6JdGi1TfIMMatP2pNiq5Ie/uUdPSFDVaZX/URQ==}
+    peerDependencies:
+      '@fastify/static': ^6.5.0 || ^7.0.0
+      '@nestjs/common': ^9.0.0 || ^10.0.0
+      '@nestjs/core': ^9.0.0 || ^10.0.0
+      express: ^4.18.1
+      fastify: ^4.7.0
+    peerDependenciesMeta:
+      '@fastify/static':
+        optional: true
+      express:
+        optional: true
+      fastify:
+        optional: true
+    dependencies:
+      '@nestjs/common': 10.4.6_bnnxhceqlvpgrjxe5cy4yeabo4
+      '@nestjs/core': 10.4.6_s4znfypbtaijtyyfca5rkvrkra
+      path-to-regexp: 0.2.5
+    dev: false
 
   /@nestjs/testing/10.4.6_jcbghsqcyuvbidyva4lc6ol4je:
     resolution: {integrity: sha512-aiDicKhlGibVGNYuew399H5qZZXaseOBT/BS+ERJxxCmco7ZdAqaujsNjSaSbTK9ojDPf27crLT0C4opjqJe3A==}
@@ -4218,6 +4241,10 @@ packages:
 
   /path-to-regexp/0.1.10:
     resolution: {integrity: sha512-7lf7qcQidTku0Gu3YDPc8DJ1q7OOucfa/BSsIwjuh56VU7katFvuM8hULfkwB3Fns/rsVF7PwPKVw1sl5KQS9w==}
+
+  /path-to-regexp/0.2.5:
+    resolution: {integrity: sha512-l6qtdDPIkmAmzEO6egquYDfqQGPMRNGjYtrU13HAXb3YSRrt7HSb1sJY0pKp6o2bAa86tSB6iwaW2JbthPKr7Q==}
+    dev: false
 
   /path-to-regexp/3.3.0:
     resolution: {integrity: sha512-qyCH421YQPS2WFDxDjftfc1ZR5WKQzVzqsp4n9M2kQhVOo/ByahFoUNJfl58kOcEGfQ//7weFTDhm+ss8Ecxgw==}

@@ -14,9 +14,8 @@ import { UpdatePageDto } from './dto/update-page.dto';
 @Controller('page')
 export class PageController {
   constructor(private readonly pageService: PageService) {}
-
-  @Post()
-  create(@Body() createPageDto: CreatePageDto) {
+  @Post('create')
+  async create(@Body() createPageDto: CreatePageDto) {
     return this.pageService.create(createPageDto);
   }
 

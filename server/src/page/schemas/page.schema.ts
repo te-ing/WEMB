@@ -12,7 +12,7 @@ export class Page {
   @Prop()
   background: string;
 
-  @Prop()
+  @Prop({ default: '100%' })
   width: string;
 
   @Prop({ type: [{ type: BoxSchema }], default: [] })

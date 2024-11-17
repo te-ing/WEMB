@@ -11,7 +11,7 @@ describe('UploadController', () => {
   let app: INestApplication;
 
   // 테스트 전에 필요한 디렉토리 생성
-  const uploadDir = path.join(__dirname, '../../uploads/images');
+  const uploadDir = path.join(__dirname, '../../public/images');
   if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
   }
