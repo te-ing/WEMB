@@ -1,11 +1,3 @@
-export default function CreateLayout({
-  children,
-  leftSection,
-  right,
-}: {
-  leftSection: React.ReactNode;
-  children: React.ReactNode;
-  right: React.ReactNode;
-}) {
+export default function CreateLayout({ children }: { children: React.ReactNode }) {
   return <div className="h-full">{children}</div>;
 }

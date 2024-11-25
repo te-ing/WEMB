@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 flex gap-2 p-1 items-center w-full h-10 border-b bg-white bg-opacity-5 backdrop-blur-sm ">
+    <header className="flex gap-2 p-2 items-center w-full h-10 border-b bg-white ">
       <Link href={"/"}>
         <HomeIcon />
       </Link>

@@ -9,7 +9,7 @@ export default function CreatePage() {
   return (
     <div className="flex">
       <LeftSidebar />
-      <section className="w-full flex flex-col pt-10">
+      <section className="w-full flex flex-col">
         <Header />
         <Preview />
       </section>
