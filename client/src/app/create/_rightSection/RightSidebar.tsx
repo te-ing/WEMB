@@ -2,6 +2,7 @@ import { SidebarProvider, SidebarTrigger, Sidebar as Sidebar } from "@/component
 import { SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu } from "@/components/ui/sidebar";
 import React, { useState } from "react";
 import EditInfo from "./EditInfo";
+import { CreateButton } from "./CreateButton";
 
 export default function RightSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [isOpen, setIsOpen] = useState(true);
@@ -25,8 +26,8 @@ export default function RightSidebar({ ...props }: React.ComponentProps<typeof S
                 <EditInfo />
               </SidebarGroupContent>
             </SidebarGroup>
-            <SidebarGroup>
-              <SidebarGroupContent>GROUP 2</SidebarGroupContent>
+            <SidebarGroup className="flex items-end">
+              <CreateButton />
             </SidebarGroup>
           </SidebarContent>
         )}

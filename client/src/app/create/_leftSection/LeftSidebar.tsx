@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { SquarePlus, SquarePen, SquareMousePointer } from "lucide-react";
+import { SquarePlus, SquarePen, SquareMousePointer, HomeIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -14,33 +14,40 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import RightSidebar from "../_rightSection/RightSidebar";
+import { useRouter } from "next/navigation";
 
 // This is sample data
 const data = {
   navMain: [
     {
-      title: "도형 생성",
-      url: "#",
-      icon: SquarePlus,
+      title: "뒤로가기",
+      url: "/",
+      icon: HomeIcon,
       isActive: true,
     },
     {
+      title: "도형 생성",
+      icon: SquarePlus,
+      isActive: true,
+      onClick: () => console.log("도형 생성"),
+    },
+    {
       title: "텍스트 생성",
-      url: "#",
       icon: SquarePen,
       isActive: false,
+      onClick: () => console.log("텍스트 생성"),
     },
     {
       title: "버튼 생성",
-      url: "#",
       icon: SquareMousePointer,
       isActive: false,
+      onClick: () => console.log("버튼 생성"),
     },
   ],
 };
 
 export function LeftSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const router = useRouter();
   return (
     <SidebarProvider>
       <Sidebar collapsible="icon" className="overflow-hidden [&>[data-sidebar=sidebar]]:flex-row" {...props}>
@@ -57,7 +64,11 @@ export function LeftSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
                           children: item.title,
                           hidden: false,
                         }}
-                        onClick={() => {}}
+                        onClick={() => {
+                          if (item.url) router.push(item.url);
+                          if (item.onClick) item.onClick();
+                          return;
+                        }}
                         className="px-2.5 md:px-2"
                       >
                         <item.icon />

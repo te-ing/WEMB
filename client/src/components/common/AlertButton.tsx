@@ -10,6 +10,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface Props {
   triggerTitle: string;
@@ -19,6 +20,7 @@ interface Props {
   onCancle?: () => void;
   triggerClassName?: string;
   DialogClassName?: string;
+  disabled?: boolean;
 }
 
 export function AlertButton({
@@ -29,18 +31,25 @@ export function AlertButton({
   description,
   DialogClassName,
   triggerClassName,
+  disabled,
 }: Props) {
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="ghost" className={triggerClassName}>
+      {disabled ? (
+        <Button variant="ghost" className={cn("cursor-not-allowed opacity-50", triggerClassName)}>
           {triggerTitle}
         </Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent className={DialogClassName}>
+      ) : (
+        <AlertDialogTrigger asChild>
+          <Button variant="ghost" className={triggerClassName}>
+            {triggerTitle}
+          </Button>
+        </AlertDialogTrigger>
+      )}
+      <AlertDialogContent className={cn("whitespace-pre-wrap", DialogClassName)}>
         <AlertDialogHeader>
           <AlertDialogTitle>{dialogTitle}</AlertDialogTitle>
-          {description ? <AlertDialogDescription>{description}</AlertDialogDescription> : null}
+          <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel onClick={onCancle}>취소</AlertDialogCancel>
