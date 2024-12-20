@@ -8,7 +8,10 @@ export const CreateButton = () => {
   const { title, background } = useStore(useSourceStore);
 
   const createPage = async () => {
-    await postCreatePage({ title, file: background });
+    const formData = new FormData();
+    formData.append("name", title);
+    formData.append("file", background);
+    await postCreatePage(formData);
   };
 
   return (
