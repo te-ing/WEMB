@@ -15,6 +15,8 @@ import { UpdatePageDto } from './dto/update-page.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { fileUploadOptions } from 'src/upload/upload.config';
 import { CreatePageDto } from './dto/create-page.dto';
+import { promises as fs } from 'fs';
+import { join } from 'path';
 
 @Controller('page')
 export class PageController {
@@ -48,7 +50,16 @@ export class PageController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.pageService.remove(id);
+  async remove(@Param('id') id: string) {
+    try {
+      const target = await this.pageService.findOne(id);
+      if (target.background) {
+        await fs.unlink(join(__dirname, '../../', target.background));
+      }
+      return this.pageService.remove(id);
+    } catch (error) {
+      console.error('삭제 중 오류가 발생했습니다', error);
+      throw new BadRequestException('삭제 중 오류가 발생했습니다.');
+    }
   }
 }
