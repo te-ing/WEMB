@@ -14,6 +14,6 @@ services:
 
 secrets:
   root_username:
-    file: .env.db
+    file: .env
   root_password:
-    file: .env.db
+    file: .env

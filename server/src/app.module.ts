@@ -5,17 +5,21 @@ import { AppService } from './app.service';
 import { PageModule } from './page/page.module';
 import { UploadModule } from './upload/upload.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/wemb'),
-    PageModule,
-    UploadModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
       serveRoot: '/public',
     }),
+    MongooseModule.forRoot(process.env.MONGO_URI),
+    PageModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
