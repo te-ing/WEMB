@@ -6,4 +6,5 @@ export interface SourceState {
 export interface SourceAction {
   setBackground: ({ background }: Pick<SourceState, "background">) => void;
   setTitle: ({ title }: Pick<SourceState, "title">) => void;
+  reset: () => void;
 }

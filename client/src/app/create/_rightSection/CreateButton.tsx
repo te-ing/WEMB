@@ -1,15 +1,15 @@
+import React, { useEffect, useState } from "react";
 import { postCreatePage } from "@/api/upload";
 import { AlertButton } from "@/components/common/AlertButton";
 import { AlertLoading } from "@/components/common/AlertLoading";
 import { useSourceStore } from "@/stores/sourceStore";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 import { useStore } from "zustand";
 
 export const CreateButton = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const { title, background } = useStore(useSourceStore);
+  const { title, background, reset } = useStore(useSourceStore);
 
   const createPage = async () => {
     const formData = new FormData();
@@ -20,6 +20,11 @@ export const CreateButton = () => {
     router.push(`/page/${res._id}`);
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    // 페이지 탈출 시 작성중인 데이터 삭제
+    return () => reset();
+  }, []);
 
   return (
     <>

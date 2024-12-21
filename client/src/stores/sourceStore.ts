@@ -2,6 +2,11 @@ import { SourceAction, SourceState } from "@/type/source.type";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
+const initialState: SourceState = {
+  title: "",
+  background: new File([], ""),
+};
+
 const useSourceStore = create(
   devtools<SourceState & SourceAction>((set, get) => ({
     title: "",
@@ -16,6 +21,7 @@ const useSourceStore = create(
         ...state,
         title,
       })),
+    reset: () => set(() => initialState),
   })),
 );
 
