@@ -5,7 +5,7 @@ export default async function PageView({ params }: { params: { id: string } }) {
 
   return (
     <div className={`relative w-[${width}]`}>
-      <img src={`http://localhost:8000/${background}`}></img>
+      <img src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${background}`}></img>
     </div>
   );
 }

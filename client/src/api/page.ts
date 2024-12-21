@@ -4,7 +4,7 @@ import { PageData } from "@/type/page.type";
 import { revalidatePath } from "next/cache";
 
 export const getPageList = async (): Promise<PageData[]> => {
-  const data = await fetch("http://localhost:8000/page", {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/page`, {
     method: "GET",
   });
   const res = await data.json();
@@ -12,7 +12,7 @@ export const getPageList = async (): Promise<PageData[]> => {
 };
 
 export const getPageData = async ({ id }: { id: string }): Promise<PageData> => {
-  const data = await fetch(`http://localhost:8000/page/${id}`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/page/${id}`, {
     method: "GET",
   });
   const res = await data.json();
@@ -20,7 +20,7 @@ export const getPageData = async ({ id }: { id: string }): Promise<PageData> => 
 };
 
 export const deletePageData = async ({ id }: { id: string }): Promise<PageData> => {
-  const data = await fetch(`http://localhost:8000/page/${id}`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/page/${id}`, {
     method: "DELETE",
   });
   const res = await data.json();
